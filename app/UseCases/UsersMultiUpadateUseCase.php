@@ -11,7 +11,12 @@ use App\Models\User;
 
 class UsersMultiUpadateUseCase
 {
-    public function __invoke(UsersRequest $request): void
+  /**
+   * @param UsersRequest $request
+   * @return void
+   * @throws ValidationException
+   */
+  public function __invoke(UsersRequest $request): void
     {
         try{
             DB::beginTransaction();
