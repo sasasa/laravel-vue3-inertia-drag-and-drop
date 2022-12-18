@@ -6,7 +6,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Hash;
-use App\Data\UsersRequest;
+use App\Http\Requests\UsersUpdateRequest;
 use App\Models\User;
 
 class UsersMultiUpadateUseCase
@@ -16,13 +16,13 @@ class UsersMultiUpadateUseCase
    * @return void
    * @throws ValidationException
    */
-  public function __invoke(UsersRequest $request): void
+  public function __invoke(array $users): void
     {
         try{
             DB::beginTransaction();
             $ids = collect();
             $stopIndex = null;
-            collect($request->users)->each(function($user, $index) use(&$ids, &$stopIndex){
+            collect($users)->each(function($user, $index) use(&$ids, &$stopIndex){
                 $stopIndex = $index;
                 if($user['id']) {
                     $u = User::findOrFail($user['id']);
