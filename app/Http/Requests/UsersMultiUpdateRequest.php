@@ -39,7 +39,7 @@ class UsersMultiUpdateRequest extends FormRequest
             'users.*.id' => ['required', 'regex:/^[0-9]+$/i'],
             'users.*.name' => ['required', 'min:2', 'max:55'],
             'users.*.username' => ['required', 'min:2', 'max:55'],
-            'users.*.email' => ['required', 'min:2', 'max:55', 'email', "regex:/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $v_email_duplicate],
+            'users.*.email' => ['required', 'min:2', 'max:55', 'email', 'regex:/^[a-zA-Z0-9_+-]+(\.[a-zA-Z0-9_+-]+)*@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/', $v_email_duplicate],
             'users.*.is_email_verified' => ['required', 'boolean',],
         ];
     }
