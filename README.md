@@ -1,4 +1,6 @@
 <!--
+curl -s "https://laravel.build/vue3-inertia-drag-drop-app" | bash
+
 sail composer require laravel/breeze --dev
 sail artisan breeze:install --inertia
 sail npm install

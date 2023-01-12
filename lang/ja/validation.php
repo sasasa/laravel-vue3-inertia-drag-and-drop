@@ -1,4 +1,15 @@
 <?php
+    $attributes = [
+        'users.*.name' => '名前',
+        'users.*.username' => 'ユーザ名',
+        'users.*.email' => 'Email',
+    ];
+    for($i = 0; $i < 10000; $i++) {
+        $attributes['users.'.$i.'.name'] = ($i + 1) .'番目の名前';
+        $attributes['users.'.$i.'.username'] = ($i + 1) .'番目のユーザ名';
+        $attributes['users.'.$i.'.email'] = ($i + 1) .'番目のEmail';
+    }
+
 
 return [
 
@@ -153,10 +164,8 @@ return [
     |
     */
 
-    'attributes' => [
-        'users.*.name' => '名前',
-        'users.*.username' => 'ユーザ名',
-        'users.*.email' => 'Email',
-    ],
+
+
+    'attributes' => $attributes,
 
 ];
