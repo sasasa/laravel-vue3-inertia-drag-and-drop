@@ -43,4 +43,11 @@ class UsersMultiUpdateRequest extends FormRequest
             'users.*.is_email_verified' => ['required', 'boolean',],
         ];
     }
+
+
+    public function messages() {
+        return [
+            'users.*.email.email' => ':attribute はメールアドレス形式ではごじやりません。',
+        ];
+    }
 }
